@@ -39,7 +39,7 @@ public final class SignInGate {
 			String name = screen.getClass().getSimpleName();
 			if (name.equals("SelectWorldScreen") || name.equals("JoinMultiplayerScreen")
 					|| name.equals("RealmsMainScreen")) {
-				mc.execute(() -> mc.setScreen(null));
+				mc.execute(() -> mc.gui.setScreen(null));
 			}
 		});
 
@@ -52,7 +52,7 @@ public final class SignInGate {
 	private static void openIas(Minecraft mc, Screen parent) {
 		try {
 			Class<?> k = Class.forName("ru.vidtu.ias.screen.AccountScreen");
-			mc.setScreen((Screen) k.getConstructor(Screen.class).newInstance(parent));
+			mc.gui.setScreen((Screen) k.getConstructor(Screen.class).newInstance(parent));
 		} catch (Throwable t) {
 			System.err.println("[SignInGate] Could not open IAS: " + t);
 		}
