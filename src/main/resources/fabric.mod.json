@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "opticlient",
+	"version": "${version}",
+	"name": "OptiClient SignIn Gate",
+	"description": "Locks the title screen for the SignIn account until the player signs in with IAS.",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/opticlient/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.opti.account.OptiClient"
+		],
+		"client": [
+			"com.opti.account.client.OptiClientClient"
+		]
+	},
+	"mixins": [
+		"opticlient.mixins.json",
+		{
+			"config": "opticlient.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.20.1",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
